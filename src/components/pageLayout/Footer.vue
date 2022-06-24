@@ -10,7 +10,7 @@
 								<!-- Footer Widget -->
 								<div class="footer-widget footer-about">
 									<div class="footer-logo">
-										<img src="assets/img/footer-logo.png" alt="logo">
+										<img src="assets/img/footer-logo.png" alt="logo" width="200px">
 									</div>
 									<div class="footer-about-content">
 										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
@@ -43,13 +43,13 @@
 							
 								<!-- Footer Widget -->
 								<div class="footer-widget footer-menu">
-									<h2 class="footer-title">For Patients</h2>
+									<h2 class="footer-title">For Customer</h2>
 									<ul>
-										<li><a href="search.html"><i class="fas fa-angle-double-right"></i> Search for Doctors</a></li>
+										<li><a href="search.html"><i class="fas fa-angle-double-right"></i> Search for Customer</a></li>
 										<li><a href="login.html"><i class="fas fa-angle-double-right"></i> Login</a></li>
 										<li><a href="register.html"><i class="fas fa-angle-double-right"></i> Register</a></li>
-										<li><a href="booking.html"><i class="fas fa-angle-double-right"></i> Booking</a></li>
-										<li><a href="patient-dashboard.html"><i class="fas fa-angle-double-right"></i> Patient Dashboard</a></li>
+										
+										<li><a href="patient-dashboard.html"><i class="fas fa-angle-double-right"></i> Customer Dashboard</a></li>
 									</ul>
 								</div>
 								<!-- /Footer Widget -->
@@ -60,13 +60,13 @@
 							
 								<!-- Footer Widget -->
 								<div class="footer-widget footer-menu">
-									<h2 class="footer-title">For Doctors</h2>
+									<h2 class="footer-title">For Customer</h2>
 									<ul>
 										<li><a href="appointments.html"><i class="fas fa-angle-double-right"></i> Appointments</a></li>
 										<li><a href="chat.html"><i class="fas fa-angle-double-right"></i> Chat</a></li>
 										<li><a href="login.html"><i class="fas fa-angle-double-right"></i> Login</a></li>
 										<li><a href="doctor-register.html"><i class="fas fa-angle-double-right"></i> Register</a></li>
-										<li><a href="doctor-dashboard.html"><i class="fas fa-angle-double-right"></i> Doctor Dashboard</a></li>
+										<li><a href="doctor-dashboard.html"><i class="fas fa-angle-double-right"></i> Customer Dashboard</a></li>
 									</ul>
 								</div>
 								<!-- /Footer Widget -->
@@ -81,15 +81,15 @@
 									<div class="footer-contact-info">
 										<div class="footer-address">
 											<span><i class="fas fa-map-marker-alt"></i></span>
-											<p> 3556  Beech Street, San Francisco,<br> California, CA 94108 </p>
+											<p> Mirpur DoHS, CA 94108 </p>
 										</div>
 										<p>
 											<i class="fas fa-phone-alt"></i>
-											+1 315 369 5943
+											+11111111
 										</p>
 										<p class="mb-0">
 											<i class="fas fa-envelope"></i>
-											doccure@example.com
+											mohazan@example.com
 										</p>
 									</div>
 								</div>

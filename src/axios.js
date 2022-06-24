@@ -5,7 +5,10 @@ const axiosClient = axios.create({
     // baseURL: 'https://dummyapi.io/data/v1/',
     baseURL: 'http://103.108.147.103/api/',
     timeout: 10000,
+    // 'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]'),
+    // 'X-Requested-With': 'XMLHttpRequest'
 });
+
 
 // if (st 
 

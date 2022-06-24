@@ -1,21 +1,7 @@
 <template>
 
     <!-- Breadcrumb -->
-    <div class="breadcrumb-bar">
-        <div class="container-fluid">
-            <div class="row align-items-center">
-                <div class="col-md-12 col-12">
-                    <nav aria-label="breadcrumb" class="page-breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index-2.html">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Doctor Profile</li>
-                        </ol>
-                    </nav>
-                    <h2 class="breadcrumb-title">Doctor Profile</h2>
-                </div>
-            </div>
-        </div>
-    </div>
+ 
     <!-- /Breadcrumb -->
 
     <!-- Page Content -->
@@ -27,6 +13,7 @@
                 <div class="card-body">
                     <div class="doctor-widget">
                         <div class="doc-info-left">
+                           <h1>Hello</h1>
                             <div class="doctor-img">
                                 <img src="assets/img/doctors/doctor-thumb-02.jpg" class="img-fluid" alt="User Image">
                             </div>
@@ -168,7 +155,40 @@ import BusinessHour from "../../components/customer/BusinessHour.vue";
 // import CustomerOverView from "../../components/customer/CustomerOverView.vue";
 export default{
     name: "CustomerProfile",
-    components: { CustomerOverView, Locations, ReviewList, CustomerReviews, BusinessHour }
+    components: { CustomerOverView, Locations, ReviewList, CustomerReviews, BusinessHour },
+    // data(){
+    //     return{
+    //    slug:[]
+    //       //product:[]
+    //     }
+    // },
+    // mounted() {
+    //     let app = this;
+    //     let s_value = app.$route.params.slug;
+    //     console.log(s_value)
+    //     app.slug= s_value;
+    //     axios.get('/products/' + slug)
+    //         .then(function (resp) {
+    //             app.slug = resp.data;
+    //            // console.log(val)
+    //         })
+    //         .catch(function () {
+    //             alert("Could not load teacher")
+    //         });
+    // },
+    // created() {
+    //     axios.get('products/slug').then(res => {
+    //       this.products = res.data.data;
+    //        //console.log(d)
+    //     }).catch(error => {
+    //         console.log(error)
+    //     })
+    // },
+
+    // created(){
+    //   //alert(this.$routes.params.data)
+      
+    // }
 }
 
 

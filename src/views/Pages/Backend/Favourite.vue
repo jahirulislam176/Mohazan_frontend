@@ -1,7 +1,7 @@
 <template>
     <div class="col-md-8 col-lg-8 col-xl-12">
         <div class="row row-grid">
-            <FavourItem></FavourItem>
+            <Item></Item>
             <!-- <AllProduct></AllProduct> -->
 
         </div>
@@ -10,11 +10,11 @@
 </template>
 
 <script>
-import FavourItem from '../../components/favourite/FavouriteItem.vue'
+import Item from '../../components/favourite/Item.vue'
 export default{ 
 name:"Favourite",
 components:{
-    FavourItem
+   Item
 }
 }
 

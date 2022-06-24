@@ -1,97 +1,158 @@
 <template>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-7">
-                <form>
-                    <div class="form-control bg bg-primary">
-                        <h3 class="text-center">Product Add Form</h3>
-                    </div>
+  <div class="container">
 
-                    <div class="form-group">
-                        <label for="exampleFormControlSelect1">Select Category</label>
-                        <select class="form-control" @change="category($event)" v-bind:key="category">
-                            <option>--select--</option>
-                            <option v-for="row in categories" v-bind:key="row.id" v-bind:value="row.id">{{ row.name }}
-                            </option>
+    <div class="card">
+      <div class="form-control bg bg-white">
+        <h3 class="text-center">Product Add Form</h3>
+      </div>
+      <form>
+        <div class="row" style="margin-top: 15px;">
 
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlSelect1">Select SubCategory</label>
-                        <select class="form-control" id="exampleFormControlSelect1">
-                            <option>--select--</option>
-                            <option>2</option>
-
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Product Name</label>
-                        <input type="text" class="form-control" placeholder="Enter Product Name">
-                    </div>
-                    <div class="form-group">
-                        <label>Product Price</label>
-                        <input type="text" class="form-control" placeholder="Enter Product Price">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Product Quantity</label>
-                        <input type="text" class="form-control" placeholder="Enter Product Quantity">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Product Details</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                    </div>
-                    <div class="form-group ">
-
-                        <input type="Submit" class="form-control bg bg-primary">
-                    </div>
-                </form>
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col-md-12">
+                <TheCard>
+                  <InputF v-for="field in fields" :key="field.id" :label="field.label" :placeholder="field.placeholder"
+                    :type="field.type"></InputF>
+                </TheCard>
+                <TheCard style="margin-top: -70px; border: none;">
+                  <label for="">Product Description</label>
+                  <QuillEditor theme="snow" />
+                </TheCard>
+                <TheCard style="margin-top: -50px; border: none;">
+                  <label for="">Upload Image</label><br>
+                  <input type="file" name="image" ref="files" multiple>
+                  <!-- <input> -->
+                </TheCard>
+              </div>
             </div>
+
+          </div>
+          <div class="col-md-6">
+            <div class="row">
+
+
+
+              <div class="col-md-12">
+
+                <TheCard>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <SelectVue :Label="'Division'"></SelectVue>
+                    </div>
+                    <div class="col-md-6">
+                      <SelectVue :Label="'District'"></SelectVue>
+                    </div>
+                  </div>
+
+
+                </TheCard>
+              </div>
+
+
+              <div class="col-md-12">
+
+                <TheCard>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <SelectVue :options="categories" :Label="'Category'" v-on:value="category"></SelectVue>
+                    </div>
+                    <div class="col-md-6">
+                      <SelectVue :Label="'Sub Category'" :options="sub_categories"></SelectVue>
+
+                    </div>
+                  </div>
+
+
+                </TheCard>
+              </div>
+              <!-- <div class="col-md-6" v-if="sub_categories!=0">
+                <TheCard>
+
+                </TheCard>
+              </div> -->
+              <!-- <div class="col-md-6" >
+
+                <TheCard>
+                  <p style="margin-top:20px; font-size:16px;margin-left:-35px" class="badge bg bg-white p-3 bg-white">
+                    Please
+                    Select Your Category </p>
+                </TheCard>
+
+              </div> -->
+
+            </div>
+          </div>
+
         </div>
+        <div class="form-group" style="width:50%">
+          <input type="Submit" class="form-control bg bg-white " />
+        </div>
+      </form>
+
     </div>
+
+  </div>
 </template>
 
 <script>
-export default{
-    name:"ProductAdd",
-     methods: {
-        read() {
-            axios.get("category/categories").then(res => {
-                this.categories = res.data.data;
-            }).catch((err) => console.error(err));
-            axios.get("search", {
-                // params: {
-                //     sub_category_id: event.target.value
-                // }
-            }).then(res => {
-                this.products = res.data.data;
-            }).catch((err) => console.error(err));
-        },
-        category(event) {
-            axios.get("category/sub-categories", {
-                params: {
-                    category_id: event.target.value
-                }
-            }).then(res => {
-                this.sub_categories = res.data.data;
-            }).catch((err) => console.error(err));
-        },
-        search(event) {
-            axios.get("search", {
-                params: {
-                    sub_category_id: event.target.value
-                }
-            }).then(res => {
-                this.products = res.data.data;
-            }).catch((err) => console.error(err));
-        },
-    },
-    mounted() {
-        this.read();
-    },
-}
+import axios from "../../../axios";
+import SelectVue from "../../components/Field/Select.vue";
+import TheCard from '../../components/Field/TheCard.vue'
+import InputF from "../../components/Field/Input.vue";
 
+export default {
+    name: "ProductAdd",
+    components: {
+        TheCard,
+        SelectVue,
+      InputF,
+    
+    },
+    data() {
+        return {
+            categories: [],
+            sub_categories: [],
+            fields: [{
+                    label: "Product Name",
+                    type: "text",
+                    placeholder: "Enter your Product Name",
+
+                },
+                {
+                    label: "Product Price",
+                    type: "text",
+                    placeholder: "Enter your Product Name",
+
+                },
+                {
+                    label: "Product Quantity",
+                    type: "text",
+                    placeholder: "Enter your Product Name",
+
+                },
+            
+
+            ]
+
+        };
+    },
+    created() {
+        axios.get("category").then(res => {
+            this.categories = res.data.data;
+        }).catch(err => console.error(err));
+    },
+
+    methods: {
+        category(value) {
+            axios.get("category/" + value)
+                .then((res) => {
+                    this.sub_categories = res.data.data;
+                }).catch((err) => console.error(err));
+        },
+    },
+
+};
 </script>
+
+<!-- v-on:input="(event) => this.$emit('sub_category', event.target.value)" -->

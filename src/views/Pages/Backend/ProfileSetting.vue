@@ -24,29 +24,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- <InputF :label="'FirsName'" :class="'col-12 col-md-6'" :type="'text'"
-                            :placeholder="'Enter Your First Name'"></InputF>
-                        <InputF :label="'LastName'" :class="'col-12 col-md-6'" :type="'text'"
-                            :placeholder="'Enter Your Last Name'"></InputF>
-
-
-                        <InputF :label="'Date of Birth'" :class="'col-12 col-md-6'" :type="'date'"
-                            :placeholder="'Enter Your Date of Birth'"></InputF>
-                        <SelectBox></SelectBox>
-                        <InputF :label="'Email'" :class="'col-12 col-md-6'" :placeholder="'Enter Your Email'"
-                            :type="'email'"></InputF>
-                        <InputF :label="'Mobile'" :class="'col-12 col-md-6'" :type="'text'"
-                            :placeholder="'Enter Your Phone Number'"></InputF>
-                        <InputF :label="'Address'" :class="'col-12 col-md-6'" :type="'text'"
-                            :placeholder="'Enter Your Address'"></InputF>
-                        <InputF :label="'City'" :class="'col-12 col-md-6'" :type="'text'"
-                            :placeholder="'Enter Your City'"></InputF>
-                        <InputF :label="'State'" :class="'col-12 col-md-6'" :type="'text'"
-                            :placeholder="'Enter Your State'"></InputF> -->
-                        <!-- 
-                        <InputF v-for="field in fields" :key="field.id" :label="field.name"
-                            :placeholder="field.placeholder" :type="field.type" :class="field.class">
-                        </InputF> -->
+                       
 
                         <InputF v-for="field in fields" :key="field.id" :label="field.label"
                             :placeholder="field.placeholder" :type="field.type" class="col-md-4">
@@ -67,7 +45,7 @@
 </template>
 <script>
 import InputF from '../../components/Field/Input.vue';
-import SelectBox from '../../components/Field/SelectBox.vue';
+import SelectBox from '../../components/Field/Category.vue';
 import axios from "../../../axios";
 export default{
     name: "ProfileSetting",
@@ -104,15 +82,7 @@ export default{
                     placeholder: "Enter Your County",
                     type: "text"
                 }
-                // {
-                //     label: "Age",
-                //     option:{
-                //         value:"",
-                //         label:""
-                //     },
-                //     placeholder: "Enter your city",
-                //     type: "number"
-                // }
+             
                 ]
         }
     },

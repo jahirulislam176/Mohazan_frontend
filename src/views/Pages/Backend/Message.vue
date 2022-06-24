@@ -50,9 +50,9 @@
 </template>
 
 <script>
-import Search from '../../components/Message/Search.vue'
-import ChatMember from '../../components/Message/ChatMember.vue'
-import Chat from '../../components/Message/Chat.vue'
+import Search from '../../components/partials/Message/Search.vue'
+import ChatMember from '../../components/partials/Message/ChatMember.vue'
+import Chat from '../../components/partials/Message/Chat.vue'
 export default{
     name:"Message",
     components:{

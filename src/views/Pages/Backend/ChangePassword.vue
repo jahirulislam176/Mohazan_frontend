@@ -28,11 +28,11 @@
 <script>
 // import Input from '../../components/Field/Input'
 import InputF from '../../components/Field/Input.vue';
-import SubmitButton from '../../components/partials/SubmitButton.vue';
+// import SubmitButton from '../../components/partials/SubmitButton.vue';
 export default{
     name: "ChangePassword",
     components: {
-     InputF, SubmitButton },
+     InputF },
     data(){
         return{
             fields:[

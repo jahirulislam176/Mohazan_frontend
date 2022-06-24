@@ -1,6 +1,6 @@
 <template>
 	<!-- Breadcrumb -->
-	<div class="breadcrumb-bar">
+	<!-- <div class="breadcrumb-bar">
 		<div class="container-fluid">
 			<div class="row align-items-center">
 				<div class="col-md-12 col-12">
@@ -14,7 +14,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 	<!-- /Breadcrumb -->
 
 	<!-- Page Content -->
@@ -297,7 +297,7 @@
 <script>
 import CustomerDetails from "../../components/customer/CustomerDetails.vue";
 import DashboardHeader from "../../components/customer/DashboardHeader.vue";
-import DataTableHead from "../../components/dataTable/DataTableHead.vue";
+import DataTableHead from "../../components/dataTable/TableHead.vue";
 export default{
     name: "Dashboard",
     components: { CustomerDetails, DashboardHeader,DataTableHead},

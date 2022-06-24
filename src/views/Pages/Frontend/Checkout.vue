@@ -1,5 +1,5 @@
 <template>
-    <div class="breadcrumb-bar">
+    <!-- <div class="breadcrumb-bar">
         <div class="container-fluid">
             <div class="row align-items-center">
                 <div class="col-md-12 col-12">
@@ -13,7 +13,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- /Breadcrumb -->
 
     <!-- Page Content -->

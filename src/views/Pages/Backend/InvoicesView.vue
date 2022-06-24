@@ -1,6 +1,6 @@
 <template>
     <!-- Breadcrumb -->
-    <div class="breadcrumb-bar">
+    <!-- <div class="breadcrumb-bar">
         <div class="container-fluid">
             <div class="row align-items-center">
                 <div class="col-md-12 col-12">
@@ -14,14 +14,14 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- /Breadcrumb -->
     <ViewInvoice></ViewInvoice> <!-- Page Content -->
 
         <!-- /Page Content -->
 </template>
 <script>
-import ViewInvoice from '../../components/invoice/ViewInvoice.vue'
+import ViewInvoice from '../../components/partials/ViewInvoice.vue'
 export default{
     name:"InvoicesView",
     components:{

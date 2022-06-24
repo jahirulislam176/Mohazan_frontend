@@ -79,6 +79,7 @@ const routes = [{
             {
                 path: '/productadd',
                 name: 'ProductAdd',
+                meta: { requireAuth: true },
                 component: () =>
                     import ('../views/Pages/Backend/ProductAdd.vue')
             }
@@ -90,18 +91,20 @@ const routes = [{
     {
         path: '/home',
         name: 'Home',
-
+        meta: { requireAuth: false },
         component: () =>
             import ('../views/Pages/Frontend/Home.vue'),
 
     }, {
-        path: '/searchdoctor',
-        name: 'SearchDoctor',
+        path: '/search',
+        name: 'Search',
+        // meta: { requireAuth: true },
         component: () =>
-            import ('../views/Pages/Frontend/SearchDoctor.vue')
+            import ('../views/Pages/Frontend/Search.vue')
     }, {
         path: '/checkout',
         name: 'Checkout',
+        meta: { requireAuth: true },
         component: () =>
             import ('../views/Pages/Frontend/Checkout.vue')
     }, {
@@ -135,11 +138,54 @@ const routes = [{
     },
 
     {
-        path: '/customerprofile',
-        name: "CustomerProfile",
+        path: '/product/:slug',
+        name: "ProductDetails",
+        // meta: { requireAuth: true },
         component: () =>
-            import ('../views/Pages/Frontend/CustomerProfile.vue')
+            import ('../views/Pages/Frontend/ProductDetails.vue'),
+        children: [{
+                path: '/product/:slug/overview',
+                name: "ProductOverView",
+                // meta: { requireAuth: true },
+                component: () =>
+                    import ('../views/components/product/CustomerOverView.vue')
+            },
+            {
+
+                path: '/product/:slug/location',
+                name: "CustomerLocation",
+                // meta: { requireAuth: true },
+                component: () =>
+                    import ('../views/components/product/Locations.vue')
+
+            },
+            {
+
+                path: '/product/:slug/reviews',
+                name: "CustomerReview",
+                // meta: { requireAuth: true },
+                component: () =>
+                    import ('../views/components/product/CustomerReviews.vue')
+            },
+            {
+
+                path: '/product/:slug/related',
+                name: "RelativeData",
+                // meta: { requireAuth: true },
+                component: () =>
+                    import ('../views/components/product/RelatedProducts.vue')
+            }
+
+
+        ]
     },
+    // {
+    //     path: '/overview',
+    //     name: "ProductOverView",
+    //     meta: { requireAuth: true },
+    //     component: () =>
+    //         import ('../views/components/product/CustomerOverView.vue')
+    // },
 
 ];
 

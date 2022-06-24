@@ -1,44 +1,76 @@
 <template>
-	<!-- Breadcrumb -->
-	<div class="breadcrumb-bar">
-		<div class="container-fluid">
-			<div class="row align-items-center">
-				<div class="col-md-12 col-12">
-					<nav aria-label="breadcrumb" class="page-breadcrumb">
-						<ol class="breadcrumb">
-							<li class="breadcrumb-item"><a href="index-2.html">Home</a></li>
-							<li class="breadcrumb-item active" aria-current="page">Product List</li>
-						</ol>
-					</nav>
-					<h2 class="breadcrumb-title">Product List</h2>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- /Breadcrumb -->
-	<!-- Page Content -->
-	<div class="content">
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-md-12 col-lg-8 col-xl-9">
-					<div class="row row-grid">
-						<div class="col-md-8 col-lg-6 col-xl-4">
-							<div class="card widget-profile pat-widget-profile">
-								<AllProduct></AllProduct>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+<div class="content">
+    <div class="container-fluid" style="margin-top: -26px;">
+        <div class="row">
+            <div class="col-md-6 col-lg-6 col-xl-8">
+                <h4 class="bg bg-white p-2 mb-0 text-center">Search Your Product By Category</h4>
+                <div class="row">
+                    <div class="col-xl-6">
+                        <SelectVue :options=" categories" v-on:value="category" :styles="'margin-top: -10px;'"></SelectVue>
+                    </div>
+                    <div class="col-xl-6" v-if="sub_categories.length!=0">
+                        <SelectVue :options="sub_categories" v-on:value="getProduct" :styles="'margin-top: -10px;'"></SelectVue>
+                    </div>
+                    <div class="col-xl-6" v-else>
+                        <h5 style="margin-top:10px;width:100%;font-size:16px;" class="badge bg bg-white p-3 bg-white">Please Select Your Category</h5>
+                        <!-- <span class="badge text-bg-info">Info</span> -->
+                    </div>
+                </div>
+
+                <div v-for="product in products" :key="product.id">
+                    <AllProduct :product="product" :styles="'margin-top: 14px;'"></AllProduct>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
 </template>
+
 <script>
-import AllProduct from '../../components/product/ProductList.vue'
-export default{
-	name:"ProductList",
-	components: {
-	AllProduct
-	}
+import SelectVue from '../../components/Field/Select.vue';
+import AllProduct from '../../components/product/AllProducts.vue'
+import axios from "../../../axios";
+export default {
+    name: "ProductList",
+    components: {
+        SelectVue,
+        AllProduct
+    },
+    data() {
+        return {
+            categories: [],
+            sub_categories: [],
+            products: []
+        }
+    },
+    created() {
+        axios.get("category").then((res) => {
+            this.categories = res.data.data;
+        }).catch((err) => console.error(err));
+        this.getProduct();
+
+    },
+    methods: {
+        category(category) {
+
+            axios.get("category/" + category)
+                .then((res) => {
+                    this.sub_categories = res.data.data;
+                    console.log(res.data.data)
+                }).catch((err) => console.error(err));
+            this.getProduct(category);
+
+        },
+        getProduct(category = '') {
+            this.products = []
+            axios.get("search/bangladesh/" + category)
+                .then((res) => {
+                    this.products = res.data.data;
+                    console.log(res.data.data)
+                }).catch((err) => console.error(err));
+        },
+
+    },
 }
 </script>
